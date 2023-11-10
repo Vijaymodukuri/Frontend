@@ -3,9 +3,14 @@
   margin: 0px;
   padding: 0px;
 }
+.main{
+  width:100%;
+    /* height:1600px; */
+}
+
 
 #hedding{
-  background-color: rgb(150,229,174);
+  background-color: rgb(103, 167, 197);
   height: 120px;
   font-size: x-large;
 }
@@ -19,13 +24,13 @@
 }
 #hedbutton{
   position: relative;
-  top: -40px;
-  left: 1330px;
+  /* top: -40px; */
+  /* left: 1330px; */
   font-size:large;
   font-weight: 650;
   border: solid 0px;
   margin-top: 20px;
-  background-color:rgb(150,229,174);
+  background-color:rgb(103, 167, 197);
   
 }
 #sidebar{
@@ -34,7 +39,7 @@
   left: 20px;
   width: 80px;
   height:570px;
-  background-color:rgb(150,229,174) ;
+  background-color:rgb(103, 167, 197) ;
   border-radius: 20px;
 }
 #sidebar button{
@@ -44,7 +49,7 @@
   position: relative;
   top: 15px;
   left: 15px;
-  background-color:rgb(150,229,174);
+  background-color:rgb(103, 167, 197);
   border: solid 0px;
   font-size: xx-large;
   color: black;
@@ -53,11 +58,11 @@
 #log{
   border-radius: 20px;
   position: relative;
-  top: -450px;
-  left: 600px;
+  /* top: -450px; */
+  /* left: 600px; */
   height: 350px;
   width: 400px;
-  background-color: rgb(150,229,174);
+  background-color: rgb(103, 167, 197);
 }
 #log input{
   width: 200px;
@@ -67,6 +72,7 @@
   top: 30px;
   left: 95px;
   border: solid 1px;
+  padding-left: 10px;
 }
 #log h1{
   color: black;
@@ -79,16 +85,18 @@
   position: relative;
   top: 50px;
   left: 165px;
-  background-color: rgb(150,229,174);
+  background-color: rgb(155, 173, 182);
   border: solid 0px;
   color: black;
   font-size: large;
   
 }
-#home{
-  position: relative;
-  top:-430px;
-  left:350px;
+
+
+div#hometext {
+  margin-top: 230px;
+  margin-bottom: 230px;
+  padding-left: 50px;
 }
 #home h1{
   font-size: xxx-large;
@@ -96,7 +104,7 @@
 #home button{
   height: 50px;
   width: 200px;
-  background-color: rgb(150,229,174);
+  background-color: rgb(103, 167, 197);
   color: black;
   border-radius: 20px;
   border: solid 0px;
@@ -108,8 +116,8 @@
   font-family:'Times New Roman';
   font-size:x-large;
   position: relative;
-  top:-550px;
-  left: 150px;
+  /* top:-550px; */
+  /* left: 150px; */
 }
 #about2{
   font-size:x-large;
@@ -120,18 +128,18 @@
 #about2 p{
   position: relative;
   left: 30px;
-  top: -700px;
+  /* top: -700px; */
   font-size:x-large;
   
 }
 #aboutregi{
   height: 60px;
   width: 200px;
-  background-color:rgb(150,229,174);
+  background-color:rgb(103, 167, 197);
   border: solid 0px;
   border-radius: 25px;
   position: relative;
-  top: -630px;
+  /* top: -630px; */
   left: 80px;
   font-size: x-large;
   color: black;
@@ -140,35 +148,42 @@
   height: 600px;
   width: 600px;
   position: relative;
-  top: -140px;
-  left: 450px;
+  /* top: -140px;
+  left: 450px; */
 }
 #hometext{
   position: relative;
-  top: -580px;
-  left: -80px;
+  /* top: -580px;
+  left: -80px; */
 }
 #aboutimg{
   height: 700px;
   width: 900px;
   position: relative;
-  left: 600px;
-  top: -100px;
+  /* left: 600px; */
+  /* top: -100px; */
 
 }
 #g1 input{
   width: 130px;
   position: relative;
   left: 130px;
+  padding-left: 10px;
+}
+
+#register{
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
 }
 #rig{
   border-radius: 20px;
   position: relative;
-  top: -450px;
-  left: 600px;
+  /* top: -450px; */
+  /* left: 600px; */
   height: 600px;
   width: 400px;
-  background-color: rgb(150,229,174);
+  background-color: rgb(103, 167, 197);
 }
 #rig input{
   width: 210px;
@@ -178,6 +193,7 @@
   top: 50px;
   left: 95px;
   border: solid 1px;
+  padding-left: 10px;
 }
 #rig h1{
   color: black;
@@ -186,17 +202,27 @@
   top: 35px;
   
 }
+select{
+  padding:0px 10px 0px 10px;
+}
 #g2 input{
   width: 130px;
   position: relative;
   left: 130px;
   top: 80px;
+  padding-left: 10px;
+}
+
+#login{
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
 }
 #registerlogin{
   position: relative;
   top: 110px;
   left: 165px;
-  background-color: rgb(150,229,174);
+  background-color: rgb(103, 167, 197);
   border: solid 0px;
   color: black;
   font-size: large;
@@ -206,19 +232,19 @@
   width: 500px;
   position: relative;
   top: 100px;
-  left: -150px;
+  /* left: -150px; */
 }
 #homet{
   position: relative;
   top:400px;
-  left: 450px;
+  /* left: 450px; */
 }
 #contimg{
   width: 600px;
   height: 600px;
   position: relative;
-  top: -500px;
-  left: 650px;
+  /* top: -500px; */
+  /* left: 650px; */
 }
 #myDropdown{
   width: 210px;
