@@ -5,7 +5,7 @@ function About(){
 
   const redirectToRegister = () => {
     // Redirect to the Register route
-    navigate("/register");
+    navigate("/Home");
   }; 
   return(
 

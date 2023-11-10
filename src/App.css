@@ -8,7 +8,42 @@
     /* height:1600px; */
 }
 
+#Welcome {
+  background-image: url('./images/welcome.jpg');
+  background-size: cover;
+  background-position: center; /* Optional: Adjust the background position as needed */
+  /* Add other background properties if needed */
+  height: 100vh;
+  background-repeat: no-repeat;
+  
+/* Adjust the background size as needed */
+  /* Add other background properties if needed */
+}
 
+#h1w{
+  text-align: center;
+  padding-top: 30px;
+  font-size:80px;
+  color: rgb(89, 168, 179); 
+  mix-blend-mode:color-burn;
+}
+#h1w:hover {
+  color: rgb(179, 173, 89); /* Change the color on hover */
+  font-size:90px; /* Change the font size on hover */
+}
+
+#startb{
+    padding-top: 300px;
+    float:right;
+
+}
+
+#sb{
+  height: 70px;
+  width: 450px;
+  font-size: xx-large;
+}
+  
 #hedding{
   background-color: rgb(103, 167, 197);
   height: 120px;
