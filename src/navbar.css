@@ -28,7 +28,8 @@
 .nav__list {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
+  font-size: large;
 }
 
 .nav__link {
@@ -39,5 +40,6 @@
 }
 
 .nav__link:hover {
-  color: #ecf0f1; /* Change hover color as needed */
+  color: #565757;
+  text-decoration: underline; /* Change hover color as needed */
 }

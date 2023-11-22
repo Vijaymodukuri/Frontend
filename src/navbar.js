@@ -40,11 +40,11 @@ function Navbar() {
                   Support
                 </a>
               </li>
-              <li className="list-item">
+              {/* <li className="list-item">
                 <a href="Register" className="nav__link">
                   Register
                 </a>
-              </li>
+              </li> */}
               <li className="list-item">
                 <a href="Login" className="nav__link">
                   Login

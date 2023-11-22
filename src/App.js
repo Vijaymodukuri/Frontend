@@ -11,6 +11,8 @@ import Login from "./Components/Login"; // Import your Login component
 import Navbar from "./navbar";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
+import Dashboard from "./StudentDashboards/Dashboard";
+
 
 function App() {
   // const [status, setStatus] = useState("home");
@@ -18,14 +20,13 @@ function App() {
   return (
    <div className="main">
     <BrowserRouter>
-    <Navbar />
     <Routes>
-      <Route path="/welcome" element={<Welcome />}/>    
+      <Route path="/" element={<Welcome />}/>    
       <Route path="/Home" element={<Home />}/>
       <Route path="/register" element={<Register />}/>
       <Route path="/login" element={<Login />}/>
       <Route path="/Info" element={<About/>}/>
-
+      <Route path="/Dashboard" element={<Dashboard/>}/>
     </Routes>
     </BrowserRouter>
    </div>

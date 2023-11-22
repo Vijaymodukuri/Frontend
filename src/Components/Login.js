@@ -1,33 +1,162 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
+import { toast } from 'react-toastify';
+import Dashboard from '../StudentDashboards/Dashboard';
+import './Login.css';
 
-function Login() {
+const Login = () => {
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+  });
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const redirectToRegister = () => {
-    // Redirect to the Register route
-    navigate("/register");
+  const handleChange = (e) => {
+    setFormData({
+      ...formData, // Fix: Spread the existing formData
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/login/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: formData.username, password: formData.password }),
+      });
+
+      if (response.status === 201) { // Fix: Check for the correct status code
+        toast.success('Logged in successfully');
+        navigate('/Dashboard'); // Fix: Correct route
+      } else {
+        toast.error('Failed to log in');
+      }
+    } catch (err) {
+      console.error('Error:', err);
+      toast.error('An error occurred during login');
+    }
   };
 
   return (
-    <div id="login">
-      <div id="log">
-        <input type="text" placeholder="Name" />
-        <br />
-        <br />
-        <input type="password" placeholder="Password" />
-        <br />
-        <br />
-        <div id="g1">
-          <input type="submit" />
-          <br />
+    <>
+    <div>
+      <header className="site-header">
+        <div className="container d-flex justify-content-between align-items-center">
+          <a href="#" className="brand-logo">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {<path d="M8.098.649A12.037 12.037 0 0 0 1.088 7h3.525C5.305 4.302 6.541 2.065 8.098.65ZM6.544 7C7.359 3.45 9.014.832 11 .166V7H6.544Zm-2.33 2H.378A12.022 12.022 0 0 0 0 12c0 1.403.24 2.749.683 4h3.703A20.558 20.558 0 0 1 4 12c0-1.032.074-2.037.214-3Zm2.127 7A23.07 23.07 0 0 1 6 12c0-1.036.066-2.041.189-3H11v7H6.341Zm-1.44 2H1.605a12.037 12.037 0 0 0 6.493 5.351c-1.36-1.237-2.475-3.1-3.197-5.35ZM11 23.834C9.205 23.232 7.681 21.037 6.803 18H11v5.834Zm4.902-.483a12.037 12.037 0 0 0 6.493-5.35h-3.296c-.722 2.25-1.837 4.113-3.197 5.35ZM17.197 18c-.878 3.037-2.402 5.232-4.197 5.834V18h4.197Zm2.417-2h3.703A11.98 11.98 0 0 0 24 12c0-1.036-.131-2.041-.378-3h-3.836c.14.963.214 1.968.214 3 0 1.396-.135 2.74-.386 4Zm-1.803-7c.123.959.189 1.964.189 3 0 1.403-.12 2.749-.341 4H13V9h4.811Zm-.355-2H13V.166C14.986.832 16.641 3.45 17.456 7Zm1.931 0c-.692-2.698-1.928-4.935-3.485-6.351A12.037 12.037 0 0 1 22.912 7h-3.525Z" />}
+            </svg>
+            <span className="logo-text">Job Portal</span>
+          </a>
+          <nav className="header-nav">
+            <ul className="nav__list">
+              <li className="list-item">
+                <a href="Home" className="nav__link">
+                  Home
+                </a>
+              </li>
+              <li className="list-item">
+                <a href="Jobs" className="nav__link">
+                  Jobs
+                </a>
+              </li>
+              <li className="list-item">
+                <a href="Info" className="nav__link">
+                  Info
+                </a>
+              </li>
+              <li className="list-item">
+                <a href="Support" className="nav__link">
+                  Support
+                </a>
+              </li>
+              {/* <li className="list-item">
+                <a href="Register" className="nav__link">
+                  Register
+                </a>
+              </li> */}
+              <li className="list-item">
+                <a href="Login" className="nav__link">
+                  Login
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <button id="loginregister" onClick={redirectToRegister}>
-          Register
-        </button>
-      </div>
+      </header>
     </div>
+      <div className="emp">
+        Employer? <Link to="/">Login</Link>
+      </div>
+      <div className="login-container">
+        <div className="log">
+          <h2>Login</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <FontAwesomeIcon icon={faUser} />
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Username"
+                required
+                value={formData.username}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group">
+              <FontAwesomeIcon icon={faLock} />
+              <input
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                name="password"
+                placeholder="Password"
+                required
+                value={formData.password}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="pwd">
+              <span
+                onClick={togglePasswordVisibility}
+                className={`password-toggle ${showPassword ? 'show' : ''}`}
+              >
+                <input type="checkbox" />
+                {showPassword ? 'Hide password' : 'Show password'}
+              </span>
+              <Link to="/">Forgot password?</Link>
+            </div>
+
+            <div className="fog"></div>
+            <div id="g1" className="form-group">
+              <button type="submit">Login</button>
+            </div>
+            <div className="reg">
+              <p>
+                Don't have an account? <Link to="/register">Register</Link>
+              </p>{' '}
+              <br />
+            </div>
+          </form>
+        </div>
+      </div>
+    </>
   );
-}
+};
 
 export default Login;
